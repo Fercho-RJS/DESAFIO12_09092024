@@ -1,0 +1,107 @@
+main
+{
+  color: black;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas: "card" "primary";
+  align-items: start;
+
+  section.card
+  {
+    grid-area: card;
+    background-color: #B5B7CA; //Card-Color-T1
+    margin: 1em auto;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: $boxshadow-default;
+    width: 80%;
+
+    ul
+    {
+      list-style-type: none;
+
+      li
+      {
+        margin-bottom: 10px;
+
+        .circulo
+        {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          background-color: #35384B; 
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+
+        strong
+        {
+          display: inline-block;
+          margin-left: 40px;
+        }
+      }
+    }
+
+    @include tablet()
+    {
+      align-self: flex-end;
+      margin: 1em;
+    }
+  }
+
+  section.primary
+  {
+    grid-area: primary;
+    padding: 15px;
+
+    h1
+    {
+      font-family: "Montserrat Alternates", sans-serif;
+      font-size: 4em;
+
+      @include tablet()
+      {
+        font-size: 6em;
+      }
+    }
+
+    p
+    {
+      font-size: 1.4em;
+    }
+
+    a
+    {
+      background-color: $default-main-color;
+      color: black;
+      border-radius: 15px;
+      box-shadow: $boxshadow-default;
+      font-weight: bold;
+      display: block;
+      padding: 15px;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-align: center;
+
+      @include tablet()
+      {
+        display: inline-block;
+        padding: 15px;
+      }
+    }
+
+    @include tablet()
+    {
+      text-align: left;
+      margin: 4em 0 0 4em;
+    }
+  }
+
+  @include tablet()
+  {
+    display: grid;
+    grid-template-columns: 70% auto;
+    grid-template-rows: 100%;
+    grid-template-areas: "primary card";
+  }
+}
